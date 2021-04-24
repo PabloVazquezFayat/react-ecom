@@ -1,0 +1,242 @@
+[
+    {
+        "id": 1,
+        "name": "Modern House",
+        "description": "3D Model of modern house, low-poly and pbr ready. Can be used for games, vr, ar, and 3d animations alike.",
+        "sizeInMegaBytes": 12.45,
+        "polyCount": "34,567",
+        "images": [
+            "/imgs/modern-house.jpg"
+        ],
+        "price": 12.50,
+        "featured": true
+    },
+    {
+        "id": 2,
+        "name": "Skyscraper-1",
+        "description": "3D Model of skyscraper, low-poly and pbr ready. Can be used for games, vr, ar, and 3d animations alike.",
+        "sizeInMegaBytes": 18.75,
+        "polyCount": "17,567",
+        "images": [
+            "/imgs/skyscraper-1.jpg"
+        ],
+        "price": 7.00,
+        "featured": false
+    },
+    {
+        "id": 3,
+        "name": "Modern Bridge",
+        "description": "3D Model of a modern bridge, low-poly and pbr ready. Can be used for games, vr, ar, and 3d animations alike.",
+        "sizeInMegaBytes": 22.12,
+        "polyCount": "34,612",
+        "images": [
+            "/imgs/modern-bridge.jpg"
+        ],
+        "price": 17.00,
+        "featured": true
+    },
+    {
+        "id": 4,
+        "name": "Fantasy Castle",
+        "description": "3D Model of a fantasy castle, low-poly and pbr ready. Can be used for games, vr, ar, and 3d animations alike.",
+        "sizeInMegaBytes": 44.12,
+        "polyCount": "67,815",
+        "images": [
+            "/imgs/fantasy-castle.jpg"
+        ],
+        "price": 17.00,
+        "featured": false
+    },
+    {
+        "id": 5,
+        "name": "SciFi Castle",
+        "description": "3D Model of a sci-fi-castle, low-poly and pbr ready. Can be used for games, vr, ar, and 3d animations alike.",
+        "sizeInMegaBytes": 32.12,
+        "polyCount": "23,815",
+        "images": [
+            "/imgs/sci-fi-castle.jpg"
+        ],
+        "price": 17.00,
+        "featured": false
+    },
+    {
+        "id": 6,
+        "name": "Modern Complex",
+        "description": "3D Model of a modern-complex, low-poly and pbr ready. Can be used for games, vr, ar, and 3d animations alike.",
+        "sizeInMegaBytes": 100.12,
+        "polyCount": "99,815",
+        "images": [
+            "/imgs/modern-complex.jpg"
+        ],
+        "price": 22.00,
+        "featured": false
+    },
+    {
+        "id": 7,
+        "name": "Townhomes",
+        "description": "3D Model of a Townhomes building, low-poly and pbr ready. Can be used for games, vr, ar, and 3d animations alike.",
+        "sizeInMegaBytes": 16.12,
+        "polyCount": "18,665",
+        "images": [
+            "/imgs/townhomes.jpg"
+        ],
+        "price": 9.00,
+        "featured": false
+    },
+    {
+        "id": 8,
+        "name": "Construction Building",
+        "description": "3D Model of a construction building, low-poly and pbr ready. Can be used for games, vr, ar, and 3d animations alike.",
+        "sizeInMegaBytes": 44.12,
+        "polyCount": "79,885",
+        "images": [
+            "/imgs/construction-building.jpg"
+        ],
+        "price": 21.00,
+        "featured": true
+    },
+    {
+        "id": 9,
+        "name": "City Buildings",
+        "description": "3D Model of city uildings, low-poly and pbr ready. Can be used for games, vr, ar, and 3d animations alike.",
+        "sizeInMegaBytes": 23.55,
+        "polyCount": "32,575",
+        "images": [
+            "/imgs/city-buildings.jpg"
+        ],
+        "price": 17.00,
+        "featured": true
+    },
+    {
+        "id": 10,
+        "name": "Greek Temple",
+        "description": "3D Model of a Greek Temple, low-poly and pbr ready. Can be used for games, vr, ar, and 3d animations alike.",
+        "sizeInMegaBytes": 23.12,
+        "polyCount": "22,665",
+        "images": [
+            "/imgs/greek-temple.jpg"
+        ],
+        "price": 8.00,
+        "featured": false
+    },
+    {
+        "id": 11,
+        "name": "SciFi Hangar",
+        "description": "3D Model of a scifi hangar, low-poly and pbr ready. Can be used for games, vr, ar, and 3d animations alike.",
+        "sizeInMegaBytes": 90.12,
+        "polyCount": "27,765",
+        "images": [
+            "/imgs/sci-fi-hangar.jpg"
+        ],
+        "price": 45.00,
+        "featured": false
+    },
+    {
+        "id": 12,
+        "name": "Mod House",
+        "description": "3D Model of a modern house building, low-poly and pbr ready. Can be used for games, vr, ar, and 3d animations alike.",
+        "sizeInMegaBytes": 34.12,
+        "polyCount": "17,465",
+        "images": [
+            "/imgs/modern-house-2.jpg"
+        ],
+        "price": 12.00,
+        "featured": true
+    },
+    {
+        "id": 13,
+        "name": "Factory",
+        "description": "3D Model of a factory building, low-poly and pbr ready. Can be used for games, vr, ar, and 3d animations alike.",
+        "sizeInMegaBytes": 34.14,
+        "polyCount": "77,983",
+        "images": [
+            "/imgs/factory.jpg"
+        ],
+        "price": 15.00,
+        "featured": false
+    },
+    {
+        "id": 14,
+        "name": "European City Blocks",
+        "description": "3D Model of a european-city-blocks, low-poly and pbr ready. Can be used for games, vr, ar, and 3d animations alike.",
+        "sizeInMegaBytes": 77.12,
+        "polyCount": "188,665",
+        "images": [
+            "/imgs/european-city-blocks.jpg"
+        ],
+        "price": 26.00,
+        "featured": false
+    },
+    {
+        "id": 15,
+        "name": "Prairie House",
+        "description": "3D Model of a prairie house, low-poly and pbr ready. Can be used for games, vr, ar, and 3d animations alike.",
+        "sizeInMegaBytes": 23.65,
+        "polyCount": "53,892",
+        "images": [
+            "/imgs/prairie-house.jpg"
+        ],
+        "price": 19.00,
+        "featured": false
+    },
+    {
+        "id": 16,
+        "name": "Classical Building",
+        "description": "3D Model of a classical building, low-poly and pbr ready. Can be used for games, vr, ar, and 3d animations alike.",
+        "sizeInMegaBytes": 100.55,
+        "polyCount": "200,665",
+        "images": [
+            "/imgs/classical-building.jpg"
+        ],
+        "price": 9.00,
+        "featured": false
+    },
+    {
+        "id": 17,
+        "name": "Medieval Palace",
+        "description": "3D Model of a medieval palace, low-poly and pbr ready. Can be used for games, vr, ar, and 3d animations alike.",
+        "sizeInMegaBytes": 76.12,
+        "polyCount": "185,775",
+        "images": [
+            "/imgs/medieval-palace.jpg"
+        ],
+        "price": 22.00,
+        "featured": false
+    },
+    {
+        "id": 18,
+        "name": "City Blocks",
+        "description": "3D Model of a city blocks, low-poly and pbr ready. Can be used for games, vr, ar, and 3d animations alike.",
+        "sizeInMegaBytes": 44.12,
+        "polyCount": "144,665",
+        "images": [
+            "/imgs/city-blocks.jpg"
+        ],
+        "price": 34.00,
+        "featured": true
+    },
+    {
+        "id": 19,
+        "name": "Modern Garden",
+        "description": "3D Model of a modern garden, low-poly and pbr ready. Can be used for games, vr, ar, and 3d animations alike.",
+        "sizeInMegaBytes": 23.45,
+        "polyCount": "45,665",
+        "images": [
+            "/imgs/modern-garden.jpg"
+        ],
+        "price": 15.00,
+        "featured": false
+    },
+    {
+        "id": 20,
+        "name": "SciFi-city",
+        "description": "3D Model of a sci-fi city, low-poly and pbr ready. Can be used for games, vr, ar, and 3d animations alike.",
+        "sizeInMegaBytes": 15.12,
+        "polyCount": "22,665",
+        "images": [
+            "/imgs/sci-fi-city.jpg"
+        ],
+        "price": 11.00,
+        "featured": false
+    }
+]
