@@ -1,0 +1,29 @@
+.products-list-wrapper{
+    /* background: green; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.products-list{
+    /* background: yellow; */
+    width: 90%;
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin: 0px;
+    padding: 0px;
+}
+
+.products{
+    /* background-color: red; */
+    width: 23%;
+    margin: 1%;
+    border: solid 1px gray;
+}
+
+.products img{
+    width: 100%;
+}

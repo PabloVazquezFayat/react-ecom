@@ -1,7 +1,8 @@
+import './Navbar.css'
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-export default function index() {
+export default function Navbar() {
     return (
         <div className="navbar">
             <ul>
@@ -10,6 +11,9 @@ export default function index() {
                 </li>
                 <li>
                     <NavLink to='/products'>Products</NavLink>
+                </li>
+                <li>
+                    <NavLink to='/cart'>Cart</NavLink>
                 </li>
             </ul>
         </div>

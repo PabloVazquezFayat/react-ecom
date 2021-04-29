@@ -1,29 +1,43 @@
-import React, { useState, useEffect }  from 'react';
+import React from 'react';
 import Navbar from '../Navbar/Navbar'
-import axios from 'axios';
 
-export default function ProductView() {
+export default function ProductView(props) {
 
-    const [products, setProducts] = useState([]);
+    const products = props.products;
+    const cart = props.cart;
+    const setCart = props.setCart;
 
-    const getProducts = async ()=> {
-        try{
-            const products = await axios.get('/products.json');
-            setProducts(products.data);
-        }catch(error){
-            console.log(error);
-        }   
+    const productNotInCart = (id)=> {
+
+        const productInCart = cart.find( product => product.id === parseInt(id) );
+
+        if(productInCart === undefined){
+            return true;
+        }
+
+        return false;
+        
     }
 
-    useEffect(()=> {
-        getProducts();
-    }, []);
+    const addToCart = (id)=> {
+
+        if(productNotInCart(id)){
+
+            const cartClone = [...cart];
+            const product = products.find( product => product.id === parseInt(id));
+
+            cartClone.push(product);
+            setCart(cartClone);
+
+        }
+
+    }
 
     const getProduct = ()=> {
 
-        if(products.length > 0){
+        if(products && products.length > 0){
 
-            const id = parseInt(window.location.href.split('/')[4]);
+            const id = parseInt(window.location.href.split('?')[1].split('=')[1]);
             const product = products.find( p => p.id === id);
 
             if(!product){
@@ -45,9 +59,8 @@ export default function ProductView() {
                                 </div>
                             </div>
                         </div>
+                        <button type="button" id={product.id} onClick={(e)=> addToCart(e.target.id)}>Add to cart</button>
                     </div>
-        }else{
-            return <div>Loading...</div>
         }
     }
 
