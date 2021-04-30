@@ -22,12 +22,8 @@ function App() {
   };
 
   useEffect(() => {
-    if (products.length === 0) {
-      getProducts();
-    }
+    getProducts();
   }, []);
-
-  console.log("cart: ", cart);
 
   const productNotInCart = (cart, id) => {
     const productInCart = cart.find((product) => product.id === parseInt(id));
@@ -52,7 +48,6 @@ function App() {
   };
   
   const getProduct = (id)=> {
-    console.log(id)
     const product = products.find(product => product.id === parseInt(id))
     setSelectedProduct(product);
   }
