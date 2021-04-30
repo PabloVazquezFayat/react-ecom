@@ -1,17 +1,53 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from '../Navbar/Navbar';
+import axios from 'axios';
 
 export default function ProductView(props) {
+    
+    const [product, setProduct] = useState({});
 
-    const product = props.selected;
+    const getProducts = async (id) => {
+        try {
+            const response = await axios.get("/products.json");
+            const product = response.data.find( product => product.id === id)
+            setProduct(product);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    useEffect(() => {
+        const id = parseInt(window.location.search.split('=')[1]);
+        getProducts(id);
+    }, []);
+
+    const productNotInCart = (cart, id) => {
+        const productInCart = cart.find((product) => product.id === parseInt(id));
+
+        if (productInCart === undefined) {
+            return true;
+        }
+
+        return false;
+    };
+    
+    const addToCart = (id) => {
+        props.setCart((prevState) => {
+            if (productNotInCart(prevState, product.id)) {
+                return [...prevState, product];
+            } else {
+                return prevState;
+            }
+        });
+    };
 
     const handleCartClick = (e)=> {
-        props.addToCart(e.target.id);
+        addToCart(e.target.id);
     }
 
     const getProduct = ()=> {
 
-        if(!product){
+        if(Object.keys(product).length === 0){
             return <div>Nothing Found</div>
         }
 
