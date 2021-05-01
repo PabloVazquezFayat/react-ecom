@@ -11,9 +11,8 @@ export default function Cart(props) {
     // var storedNames = JSON.parse(localStorage.getItem("names"));
 
     const cart = props.cart;
-    const setCart = props.setCart;
 
-    console.log(cart, setCart)
+    console.log(cart)
 
     return (
         <div className="cart">

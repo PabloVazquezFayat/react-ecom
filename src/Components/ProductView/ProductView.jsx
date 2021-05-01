@@ -1,10 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Navbar from '../Navbar/Navbar';
+import Product from '../Product/Product';
+import Alert from '../Alert/Alert';
 import axios from 'axios';
+import Query from '../../Utils/Query/Query'
 
 export default function ProductView(props) {
     
     const [product, setProduct] = useState({});
+    const [alert, setAlert] = useState(false);
+
+    const { search } = useLocation();
+    const params = Query(search);
 
     const getProducts = async (id) => {
         try {
@@ -17,64 +25,48 @@ export default function ProductView(props) {
     };
 
     useEffect(() => {
-        const id = parseInt(window.location.search.split('=')[1]);
+        const id = parseInt(params.id);
         getProducts(id);
-    }, []);
-
-    const productNotInCart = (cart, id) => {
-        const productInCart = cart.find((product) => product.id === parseInt(id));
-
-        if (productInCart === undefined) {
-            return true;
-        }
-
-        return false;
-    };
-    
-    const addToCart = (id) => {
-        props.setCart((prevState) => {
-            if (productNotInCart(prevState, product.id)) {
-                return [...prevState, product];
-            } else {
-                return prevState;
-            }
-        });
-    };
+    }, [params.id]);
 
     const handleCartClick = (e)=> {
         addToCart(e.target.id);
     }
 
-    const getProduct = ()=> {
+    const addToCart = (id) => {
+
+        props.setCart((prevState) => {
+
+            const productInCart = prevState.find((product) => product.id === parseInt(id));
+
+            if (!productInCart) {
+                return [...prevState, product];
+            } else {
+                setAlert(true);
+                return prevState;
+            }
+
+        });
+
+    };
+
+    const createProduct = ()=> {
 
         if(Object.keys(product).length === 0){
             return <div>Nothing Found</div>
         }
 
-        return  <div>
-                    <img src={product.images[0]} alt=""/>
-                    <div className="featured-details">
-                        <div className="featured-name">{product.name}</div>
-                        <div className="featured-price">
-                            <div>
-                                <span>Price:</span>
-                                <span>${product.price}</span>
-                            </div>
-                            <div>
-                                <span>Polygons: </span>
-                                <span>{product.polyCount}</span>
-                            </div>
-                        </div>
-                    </div>
-                    <button type="button" id={product.id} onClick={handleCartClick}>Add to cart</button>
-                </div>
+        return  <Product product={product} action={handleCartClick}/>
             
     }
 
     return (
         <div>
+            <Alert alert={alert} setAlert={setAlert}>
+                This product is already in your cart!
+            </Alert>
             <Navbar/>
-            {getProduct()}
+            {createProduct()}
         </div>
     )
 }
