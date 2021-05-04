@@ -52,11 +52,11 @@ export default function ProductView(props) {
 
     const createProduct = ()=> {
 
-        if(Object.keys(product).length === 0){
-            return <div>Nothing Found</div>
+        if(Object.keys(product).length !== 0){
+            return  <Product product={product} action={handleCartClick}/>
         }
 
-        return  <Product product={product} action={handleCartClick}/>
+        return <div>Nothing Found</div>
             
     }
 

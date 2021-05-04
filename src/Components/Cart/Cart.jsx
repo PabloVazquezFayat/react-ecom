@@ -58,7 +58,7 @@ export default function Cart(props) {
                                 null
                             }
                             {
-                                product.discount 
+                                product.discounts 
                                 ?
                                 <div className="final-total">
                                     {`$${calculatedFinalTotal(product.price, product.discounts)}`}
