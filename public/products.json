@@ -9,7 +9,17 @@
             "/imgs/modern-house.jpg"
         ],
         "price": 12.50,
-        "featured": true
+        "featured": true,
+        "discounts": [
+            {
+                "name": "First time buyer",
+                "offer": "10%"
+            },
+            {
+                "name": "Flash Sale",
+                "offer": "-5"
+            }
+        ]
     },
     {
         "id": 2,

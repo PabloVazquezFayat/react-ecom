@@ -7,9 +7,10 @@ export default function Product(props) {
     return (
         <div>
             <img src={product.images[0]} alt=""/>
-            <div className="featured-details">
-                <div className="featured-name">{product.name}</div>
-                <div className="featured-price">
+            <div className="product-details">
+                <div className="product-name">{product.name}</div>
+                <div className="product-description">{product.description}</div>
+                <div className="product-price">
                     <div>
                         <span>Price:</span>
                         <span>${product.price}</span>
