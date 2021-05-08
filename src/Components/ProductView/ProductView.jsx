@@ -1,159 +1,40 @@
-// import React, { useState, useEffect } from 'react';
-// import { useLocation } from 'react-router-dom';
-// import Navbar from '../Navbar/Navbar';
-// import Product from '../Product/Product';
-// import Alert from '../Alert/Alert';
-// import axios from 'axios';
-// import Query from '../../Utils/Query/Query'
-
-// export default function ProductView(props) {
-
-//     const { products } = props;
-    
-//     const [product, setProduct] = useState();
-//     const [alert, setAlert] = useState(false);
-
-//     const { search } = useLocation();
-//     const params = Query(search);
-
-//     const getProducts = async (id) => {
-//         try {
-//             const response = await axios.get("/products.json");
-//             const product = response.data.find( product => product.id === id)
-//             setProduct(product);
-//         } catch (error) {
-//             console.log(error);
-//         }
-//     };
-
-//     useEffect(() => {
-//         if(products && !product){
-//             const id = parseInt(params.id);
-//             setProduct(products.find( product => product.id === id));
-//         }else if(!products && !product){
-//             const id = parseInt(params.id);
-//             getProducts(id);
-//         }
-//     }, [products, product, params.id]);
-
-//     const handleCartClick = (e)=> {
-//         addToCart(e.target.id);
-//     }
-
-//     const addToCart = (id) => {
-
-//         props.setCart((prevState) => {
-
-//             const productInCart = prevState.find((product) => product.id === parseInt(id));
-
-//             if (!productInCart) {
-//                 return [...prevState, product];
-//             } else {
-//                 setAlert(true);
-//                 return prevState;
-//             }
-
-//         });
-
-//     };
-
-//     const createProduct = ()=> {
-
-//         if(product){
-//             return  <Product product={product} action={handleCartClick}/>
-//         }
-
-//         return <div>Nothing Found</div>
-            
-//     }
-
-//     return (
-//         <div>
-//             <Alert alert={alert} setAlert={setAlert}>
-//                 This product is already in your cart!
-//             </Alert>
-//             <Navbar/>
-//             {createProduct()}
-//         </div>
-//     )
-// }
-
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Navbar from '../Navbar/Navbar';
 import Product from '../Product/Product';
 import Alert from '../Alert/Alert';
-import axios from 'axios';
 import Query from '../../Utils/Query/Query'
 
-export default function ProductView(props) {
-
-    const { products } = props;
-    
-    const [product, setProduct] = useState();
-    const [alert, setAlert] = useState(false);
-
+const ProductView =({cart, products, setCart}) =>  {
+    const [product, setProduct] = useState({});
+    const [showAlert, setShowAlert] = useState(false);
     const { search } = useLocation();
     const params = Query(search);
-
-    const getProducts = async (id) => {
-        try {
-            const response = await axios.get("/products.json");
-            const product = response.data.find( product => product.id === id)
-            setProduct(product);
-        } catch (error) {
-            console.log(error);
-        }
-    };
+    const idInParams = parseInt(params.id);
 
     useEffect(() => {
-        if(products && !product){
-            const id = parseInt(params.id);
-            setProduct(products.find( product => product.id === id));
-        }else if(!products && !product){
-            const id = parseInt(params.id);
-            getProducts(id);
+        if(products.length && !product.id){
+            setProduct(products.find( product => product.id === idInParams));
         }
-    }, [products, product, params.id]);
+    }, [products, product, idInParams]);
 
-    const handleCartClick = (e)=> {
-        addToCart(e.target.id);
-    }
-
-    const addToCart = (id) => {
-
-        props.setCart((prevState) => {
-
-            const productInCart = prevState.find((product) => product.id === parseInt(id));
-
-            if (!productInCart) {
-                return [...prevState, product];
-            } else {
-                setAlert(true);
-                return prevState;
-            }
-
-        });
-
+    const addToCart = ({productId, selectedProduct}) => {
+        const productInCart = cart.find((selectedProduct) => selectedProduct.id === parseInt(productId));
+        if (productInCart) return setShowAlert(true);
+        return setCart((prevState) => [...prevState, selectedProduct] );
     };
 
-    const createProduct = ()=> {
-
-        if(product){
-            return  <Product product={product} action={handleCartClick}/>
-        }
-
-        return <div>Nothing Found</div>
-            
-    }
+    if(!product.id) return <div>Nothing Found</div>
 
     return (
         <div>
-            <Alert alert={alert} setAlert={setAlert}>
+            <Alert alert={showAlert} setAlert={setShowAlert}>
                 This product is already in your cart!
             </Alert>
             <Navbar/>
-            {createProduct()}
+            <Product product={product} onclick={(e) => addToCart({productId: e.target.id, selectedProduct: product})}/>       
         </div>
     )
-}
+};
+
+export default ProductView;

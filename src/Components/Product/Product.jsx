@@ -1,27 +1,25 @@
 import React from 'react';
-
-export default function Product(props) {
-
-    const { product, action } = props;
-
+const Product = ({product, onclick}) => {
+    const {id, images, name, description, price, polyCount} = product;
     return (
         <div>
-            <img src={product.images[0]} alt=""/>
+            <img src={images[0]} alt=""/>
             <div className="product-details">
-                <div className="product-name">{product.name}</div>
-                <div className="product-description">{product.description}</div>
+                <div className="product-name">{name}</div>
+                <div className="product-description">{description}</div>
                 <div className="product-price">
                     <div>
                         <span>Price:</span>
-                        <span>${product.price}</span>
+                        <span>${price}</span>
                     </div>
                     <div>
                         <span>Polygons: </span>
-                        <span>{product.polyCount}</span>
+                        <span>{polyCount}</span>
                     </div>
                 </div>
             </div>
-            <button type="button" id={product.id} onClick={action}>Add to cart</button>
+            <button type="button" id={id} onClick={onclick}>Add to cart</button>
         </div>
     )
 }
+export default Product;
