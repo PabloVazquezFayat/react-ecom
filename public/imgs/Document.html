@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <!-- <script src="promo-studio-lib.js"></script> -->
+</head>
+
+<body>
+
+  <style>
+
+    #ge_chat-alert{
+      background: #fff;
+      width: 300px;
+      height: auto;
+      padding: 20px;
+      margin: 0px;
+      position: fixed;
+      bottom: 10%;
+      left: 10%;
+      display: flex;
+      justify-content: center;
+      border-radius: 5px;
+      box-shadow: 0px 1px 4px #000;
+      z-index: 999;
+    }
+
+    .ge_chat-alert-container{
+      /* background: red; */
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+
+    .ge_chat-alert-icon{
+      /* background: blue; */
+      width: 50px;
+      height: 50px;
+    }
+
+    .ge_chat-alert-message{
+      /* background: green; */
+    }
+
+    .ge_chat-alert-message p{
+      padding: 0px 0px 0px 10px;
+      margin: 0px;
+      color: #15264c;
+    }
+
+    .ge_chat-alert-arrow{
+      background: #fff;
+      width: 20px;
+      height: 20px;
+      transform: rotate(45deg);
+      position: absolute;
+      bottom: -9px;
+      left: 30px;
+      font-family: "ProximaNova-Regular", Arial, sans-serif;
+      font-size: 1.125rem;
+      box-shadow: 0px 1px 4px #000;
+      z-index: 998;
+    }
+
+  </style>
+
+
+  <div id="ge_chat-alert">
+    <div class="ge_chat-alert-container">
+      <div class="ge_chat-alert-icon">
+          <span class="material-icons-outlined">live_help</span>
+      </div>
+      <div class="ge_chat-alert-message">
+         <p>
+           Hi there! You can speak to reprensentative at any moment using our live chat.
+           If you have any questions or concerns talk to us now!
+         </p>
+      </div>
+    </div>
+  
+    <div class="ge_chat-alert-arrow"></div>
+  </div>
+
+<!-- Code injected by live-server -->
+<script type="text/javascript">
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+
+</body></html>

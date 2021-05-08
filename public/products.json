@@ -30,19 +30,19 @@
         "images": [
             "/imgs/skyscraper-1.jpg"
         ],
-        "price": 7.00,
+        "price": 0.1,
         "featured": false
     },
     {
         "id": 3,
         "name": "Modern Bridge",
         "description": "3D Model of a modern bridge, low-poly and pbr ready. Can be used for games, vr, ar, and 3d animations alike.",
-        "sizeInMegaBytes": 22.12,
+        "sizeInMegaBytes": 44.12,
         "polyCount": "34,612",
         "images": [
             "/imgs/modern-bridge.jpg"
         ],
-        "price": 17.00,
+        "price": 0.2,
         "featured": true
     },
     {
@@ -54,7 +54,7 @@
         "images": [
             "/imgs/fantasy-castle.jpg"
         ],
-        "price": 17.00,
+        "price": 17.07,
         "featured": false
     },
     {

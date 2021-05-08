@@ -19,7 +19,6 @@ export default function Cart(props) {
         const discountPercentages = discounts.filter( discount => discount.offer.indexOf('%') !== -1)
             .map( discount => discount.offer.split('%')[0]);
 
-
         price -= discountAmounts || 0;
 
         discountPercentages.forEach( discount => {

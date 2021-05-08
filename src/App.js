@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Landing from "./Components/Landing/Landing";
 import ProductList from "./Components/ProductList/ProductList";
 import ProductView from "./Components/ProductView/ProductView";
 import Cart from "./Components/Cart/Cart";
+import axios from "axios";
 
 function App() {
 
@@ -12,6 +13,19 @@ function App() {
   const [products, setProducts] = useState([]);
 
   console.log(cart);
+
+  const getProducts = async()=> {
+    try{
+      const res = axios.get('/products.json');
+      setProducts(res.data);
+    }catch(error){
+      console.log(error);
+    }
+  }
+
+  useEffect(()=> {
+    getProducts();
+  }, []);
 
   return (
     <div className="App">
