@@ -1,26 +1,11 @@
 import './Featured.css';
-import React, { useState, useEffect }  from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
-import axios from 'axios';
 
 export default function Featured(props) {
 
     const setSelected = props.setSelected;
-
-    const [products, setProducts] = useState([]);
-
-    const getProducts = async ()=> {
-        try{
-            const products = await axios.get('/products.json');
-            setProducts(products.data);
-        }catch(error){
-            console.log(error);
-        }   
-    }
-
-    useEffect(()=> {
-        getProducts();
-    }, []);
+    const products = props.products;
 
     const handleClick = (product)=> {
         setSelected(product);
@@ -28,36 +13,33 @@ export default function Featured(props) {
 
     const createFeaturedList = ()=> {
 
-        if(products.length === 0){
-            return <li>Loading...</li>
-        }
+        if(products){
 
-        const featured = products.filter((product)=> {
-            return product.featured === true;
-        });
+            const featured = products.filter( product => product.featured === true );
 
-        const featuredList = featured.map((product, i) => {
-            return <li key={i} id={product.id} className="landing">
-                        <NavLink to={`/product?id=${product.id}`}>
-                            <img src={product.images[0]} alt="" onClick={()=> handleClick(product)}/>
-                        </NavLink>
-                        <div className="featured-details">
-                            <div className="featured-name">{product.name}</div>
-                            <div className="featured-price">
-                                <div>
-                                    <span>Price:</span>
-                                    <span>${product.price}</span>
-                                </div>
-                                <div>
-                                    <span>Polygons: </span>
-                                    <span>{product.polyCount}</span>
+            return featured.map((product, i) => {
+                return <li key={i} id={product.id} className="landing">
+                            <NavLink to={`/product?id=${product.id}`}>
+                                <img src={product.images[0]} alt="" onClick={()=> handleClick(product)}/>
+                            </NavLink>
+                            <div className="featured-details">
+                                <div className="featured-name">{product.name}</div>
+                                <div className="featured-price">
+                                    <div>
+                                        <span>Price:</span>
+                                        <span>${product.price}</span>
+                                    </div>
+                                    <div>
+                                        <span>Polygons: </span>
+                                        <span>{product.polyCount}</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </li>
-        });
+                        </li>
+            });
+        }
 
-        return featuredList;
+        return <li>Loading...</li>
 
     }
 

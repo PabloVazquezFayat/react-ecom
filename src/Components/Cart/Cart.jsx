@@ -1,6 +1,6 @@
 import './Cart.css';
 import React from 'react';
-import Navbar from '../Navbar/Navbar';
+import Navbar from ".././Navbar/Navbar";
 
 export default function Cart(props) {
 
@@ -38,7 +38,7 @@ export default function Cart(props) {
 
     const createCartItems = ()=> {
 
-        if(cart.length === 0){
+        if(!cart){
             return <li className="cart-item">Cart is empty</li>
         }
 
@@ -84,11 +84,9 @@ export default function Cart(props) {
 
     }
 
-
     return (
         <div className="cart">
             <Navbar/>
-
             <div className="cart-container">
 
                 <div className="cart-items-container">

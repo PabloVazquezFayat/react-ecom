@@ -1,6 +1,6 @@
 import React from 'react';
-import Navbar from '../Navbar/Navbar'
-import Featured from '../FeaturedProducts/Featured'
+import Navbar from ".././Navbar/Navbar";
+import Featured from '../FeaturedProducts/Featured';
 
 export default function Landing(props) {
     return (
@@ -9,7 +9,7 @@ export default function Landing(props) {
             <div className="jumbotron">
                 <h1>Welcome to Vandl 3D Shop</h1>
             </div>
-            <Featured setSelected={props.setSelected}/>
+            <Featured products={props.products} setSelected={props.setSelected}/>
         </div>
     )
 }
