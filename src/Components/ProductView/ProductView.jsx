@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Navbar from '.././Navbar/Navbar';
 import Product from '../Product/Product';
 import Alert from '../Alert/Alert';
@@ -6,11 +6,27 @@ import Alert from '../Alert/Alert';
 export default function ProductView(props) {    
 
     const product = props.selected ?? null;
+    const cart = props.cart;
     
     const [alert, setAlert] = useState(false);
 
+    const checkCartForDuplicates = (id)=> {
+
+        const productInCart = cart.find((product) => product.id === parseInt(id));
+
+        if(productInCart){
+            setAlert(true);
+            return false;
+        }
+
+        return true;
+
+    }
+
     const handleCartClick = (e)=> {
-        addToCart(e.target.id);
+        if(checkCartForDuplicates(e.target.id)){
+            addToCart(e.target.id);
+        }
     }
 
     const addToCart = (id) => {
@@ -19,10 +35,13 @@ export default function ProductView(props) {
 
             const productInCart = prevState.find((product) => product.id === parseInt(id));
 
+            if(productInCart){
+                setAlert(true);
+            }
+
             if (!productInCart) {
                 return [...prevState, product];
             } else {
-                setAlert(true);
                 return prevState;
             }
 

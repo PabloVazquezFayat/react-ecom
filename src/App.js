@@ -63,7 +63,7 @@ function App() {
               <Route
                 exact
                 path="/product"
-                component={() => <ProductView products={products} setCart={setCart} selected={selected}/>}
+                component={() => <ProductView products={products} cart={cart} setCart={setCart} selected={selected}/>}
               />
 
               <Route
