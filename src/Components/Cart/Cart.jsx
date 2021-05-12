@@ -36,9 +36,23 @@ export default function Cart(props) {
         return `$${price.toFixed(2)}`;
     }
 
+    const deleteFromCart = (id)=> {
+        props.setCart((prevState) => {
+
+            const productInCart = prevState.find((product) => product.id === parseInt(id));
+
+            if (productInCart) {
+                return [...prevState.filter(product => product.id !== id)];
+            } else {
+                return prevState;
+            }
+
+        });
+    }
+
     const createCartItems = ()=> {
 
-        if(!cart){
+        if(cart.length === 0){
             return <li className="cart-item">Cart is empty</li>
         }
 
@@ -65,6 +79,9 @@ export default function Cart(props) {
                                 :
                                 null
                             }
+                        </div>
+                        <div className="cart-item-delete">
+                            <button type="button" onClick={()=> deleteFromCart(product.id)}>Remove from cart</button>
                         </div>
                     </li>
         });
@@ -95,9 +112,14 @@ export default function Cart(props) {
                     </ul>
                 </div>
 
-                <div className="cart-order">
-                    <div>Total: ${getTotal()}</div>
-                    <h2>Grand Total: ${getTotal()}</h2>
+                <div className="cart-order-container">
+                    <div className="cart-order">
+                        <div>Total: ${getTotal()}</div>
+                        <h2>Grand Total: ${getTotal()}</h2>
+                    </div>
+                    <div>
+                        <button type="button">Chekout</button>
+                    </div>
                 </div>
 
             </div>
