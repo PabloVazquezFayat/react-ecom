@@ -11,24 +11,24 @@ export default function ProductList(props) {
     const productList = ()=> {
         if(products && products.length > 0){
             return products.map((product, i)=> {
-                return  <li key={i} id={product.id} className="products" onClick={()=> setSelected(product)}>
+                return  <div key={i} id={product.id} className="products" onClick={()=> setSelected(product)}>
                             <NavLink to={`/product?id=${product.id}`}>
                                 <img src={product.images[0]} alt=""/>
                             </NavLink>
-                        </li>
+                        </div>
             });
         }
 
-        return <li>Loading...</li>
+        return <div>Loading...</div>
     }
 
     return (
         <div>
             <Navbar/>
             <div className="products-list-wrapper">
-                <ul className="products-list">
+                <div className="products-list">
                     {productList()}
-                </ul>
+                </div>
             </div>
         </div>
     )

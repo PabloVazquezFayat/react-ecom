@@ -18,7 +18,7 @@ export default function Featured(props) {
             const featured = products.filter( product => product.featured === true );
 
             return featured.map((product, i) => {
-                return <li key={i} id={product.id} className="landing">
+                return <div key={i} id={product.id} className="landing">
                             <NavLink to={`/product?id=${product.id}`}>
                                 <img src={product.images[0]} alt="" onClick={()=> handleClick(product)}/>
                             </NavLink>
@@ -35,20 +35,22 @@ export default function Featured(props) {
                                     </div>
                                 </div>
                             </div>
-                        </li>
+                        </div>
             });
         }
 
-        return <li>Loading...</li>
+        return <div>Loading...</div>
 
     }
 
     return (
         <div className="featured-products-gallery">
-            <h2>Featured 3D Models</h2>
-            <ul className="featured-products-list">
-                {createFeaturedList()}
-            </ul>
+            <div className="featured-products-container">
+                <h2>Featured 3D Models</h2>
+                <div className="featured-products-list">
+                    {createFeaturedList()}
+                </div>
+            </div>
         </div>
     )
 }
