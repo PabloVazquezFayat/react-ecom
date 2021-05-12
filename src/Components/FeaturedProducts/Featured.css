@@ -1,3 +1,9 @@
+.featured-products-gallery{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 .featured-products-container{
     display: flex;
     justify-content: center;
@@ -5,9 +11,13 @@
     flex-direction: column;
 }
 
+.featured-products-container h2{
+    width: 100%;
+}
+
 .featured-products-list{
     width: auto;
-    margin: 50px 0px 50px 0px;
+    margin: 20px 0px 20px 0px;
     display: grid;
     grid-template-columns: 320px 320px 320px;
     grid-column-gap: 10px;
